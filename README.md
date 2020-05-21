@@ -17,15 +17,15 @@ $ npm i --save @color-space/convert
 ```jsx
 import { ColorSpace, convertCSSColor } from "@color-spaces/convert";
 
-const myColor = "lch(60% 67 266)";
+const myColorLCH = "lch(60% 67 266)";
 // P3 colors are already supported by Safari
-const myColorP3 = convertCSSColor(myColor, ColorSpace.P3);
+const myColorP3 = convertCSSColor(myColorLCH, ColorSpace.P3);
 // RGB is supported everywhere
-const myColorRGB = convertCSSColor(myColor, ColorSpace.sRGB);
+const myColorRGB = convertCSSColor(myColorLCH, ColorSpace.sRGB);
 
 const CSS = `
     :root {
-        --myColor: ${myColor};
+        --myColor: ${myColorRGB};
     }
 
     @supports (color: color(display-p3 1 1 1)) {
@@ -36,7 +36,7 @@ const CSS = `
 
     @supports (color: lch(0 0 0)) {
         :root {
-            --myColor: ${myColorRGB};
+            --myColor: ${myColorLCH};
         }
     }
 `;
