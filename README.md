@@ -14,14 +14,14 @@ $ npm i --save @color-space/convert
 
 ## Usage
 
-```js
+```jsx
 import { ColorSpace, convertCSSColor } from "@color-spaces/convert";
 
 const myColor = "lch(60% 67 266)";
 // P3 colors are already supported by Safari
-const myColorP3 = convertCSSColor(LCHColor, ColorSpace.P3);
+const myColorP3 = convertCSSColor(myColor, ColorSpace.P3);
 // RGB is supported everywhere
-const myColorRGB = convertCSSColor(LCHColor, ColorSpace.sRGB);
+const myColorRGB = convertCSSColor(myColor, ColorSpace.sRGB);
 
 const CSS = `
     :root {
