@@ -1,17 +1,18 @@
 {
   "name": "@color-spaces/convert",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Color space conversion utilities",
   "repository": "git@github.com:thibthib/color-spaces.git",
   "author": "Thibaut Dutartre <t.dutartre@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "microbundle": "0.12.0"
+    "microbundle": "0.13.0"
   },
   "source": "index.ts",
-  "main": "dist/color-spaces-convert.js",
-  "module": "dist/color-spaces-convert.module.js",
-  "unpkg": "dist/color-spaces-convert.umd.js",
+  "main": "./dist/color-spaces-convert.js",
+  "exports": "./dist/color-spaces-convert.modern.js",
+  "module": "./dist/color-spaces-convert.esm.js",
+  "unpkg": "./dist/color-spaces-convert.umd.js",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"

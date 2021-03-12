@@ -7,9 +7,9 @@ This repository is for the most part code written by [Chris Lilley](https://svge
 ## Installation
 
 ```bash
-$ yarn add @color-space/convert
+$ yarn add @color-spaces/convert
 # or
-$ npm i --save @color-space/convert
+$ npm i --save @color-spaces/convert
 ```
 
 ## Usage
