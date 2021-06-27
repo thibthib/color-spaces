@@ -151,13 +151,13 @@ export const interpolateGradient = (
   });
 
   const angle =
-    parseGradientStep(stringSteps[0]) === null ? `${stringSteps}, ` : "";
+    parseGradientStep(stringSteps[0]) === null ? `${stringSteps[0]}, ` : "";
 
   return `linear-gradient(${angle}${stepsWithInterpolation
     .map(
       (value) =>
-        `${stringify(value[0])} ${beautifyNumber(value[1] * 100, 2)}% ${
-          value[2] === null ? "" : `${beautifyNumber(value[2] * 100, 2)}%`
+        `${stringify(value[0])} ${beautifyNumber(value[1] * 100, 2)}%${
+          value[2] === null ? "" : ` ${beautifyNumber(value[2] * 100, 2)}%`
         }`
     )
     .join(", ")});`;
