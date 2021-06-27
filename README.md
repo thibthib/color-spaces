@@ -47,7 +47,6 @@ const CSS = `
 This enum contains all the supported color spaces:
 
 - AdobeRGB
-- CMYK
 - HSL
 - Lab
 - LCH
@@ -56,8 +55,6 @@ This enum contains all the supported color spaces:
 - Rec2020
 - sRGB
 - XYZ
-
-⚠️ Note that all those spaces do not have a CSS notation: `CMYK` and `XYZ` are not supported when converting CSS colors.
 
 ### convertCSSColor
 

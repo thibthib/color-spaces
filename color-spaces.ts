@@ -1,6 +1,5 @@
 export enum ColorSpace {
   AdobeRGB = "AdobeRGB",
-  CMYK = "CMYK",
   HSL = "HSL",
   Lab = "Lab",
   LCH = "LCH",

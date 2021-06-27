@@ -1,5 +1,6 @@
 import { LCH } from "../spaces/LCH";
 import { ColorSpace } from "../color-spaces";
+import { beautifyNumber } from "./utils";
 
 // lch(l c h / a)
 // l is a percentage from 0 to Infinity
@@ -17,7 +18,7 @@ export const parse = (color: string): LCH | null => {
 export const stringify = (color: LCH, alpha?: string): string => {
   const [L, C, H] = color.values.map(
     (value: number, index: number) =>
-      `${value.toFixed(index === 0 ? 2 : 4)}${index === 0 ? "%" : ""}`
+      `${beautifyNumber(value, index === 0 ? 2 : 4)}${index === 0 ? "%" : ""}`
   );
   return `lch(${L} ${C} ${H}${alpha ? ` / ${alpha}` : ""})`;
 };

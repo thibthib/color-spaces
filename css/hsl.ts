@@ -1,5 +1,6 @@
 import { HSL } from "../spaces/HSL";
 import { ColorSpace } from "../color-spaces";
+import { beautifyNumber } from "./utils";
 
 // the hue needs to be a number in the half-open range [0, 6)
 const parseAngle = (angle: string) => {
@@ -35,8 +36,8 @@ export const parse = (color: string): HSL | null => {
 export const stringify = (color: HSL, alpha?: string): string => {
   const [hue, saturation, lightness] = color.values.map((value, index) =>
     index === 0
-      ? `${((value / 6) * 360).toFixed(4)}deg`
-      : `${(value * 100).toFixed(2)}%`
+      ? `${beautifyNumber((value / 6) * 360, 4)}deg`
+      : `${beautifyNumber(value * 100, 2)}%`
   );
   return `hsl(${hue} ${saturation} ${lightness}${alpha ? ` / ${alpha}` : ""})`;
 };

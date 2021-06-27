@@ -4,6 +4,7 @@ import { ProPhoto } from "../spaces/ProPhoto";
 import { AdobeRGB } from "../spaces/AdobeRGB";
 import { Rec2020 } from "../spaces/Rec2020";
 import { ColorSpace } from "../color-spaces";
+import { beautifyNumber } from "./utils";
 
 export type PredefinedSpaces =
   | ColorSpace.AdobeRGB
@@ -39,7 +40,9 @@ export const stringify = (
   color: AdobeRGB | P3 | ProPhoto | Rec2020 | sRGB,
   alpha?: string
 ): string => {
-  const [red, green, blue] = color.values.map((value) => value.toFixed(4));
+  const [red, green, blue] = color.values.map((value) =>
+    beautifyNumber(value, 4)
+  );
   const space = Object.entries(stringToSpace).find(
     ([_, value]) => value === color.type
   );
