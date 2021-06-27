@@ -1,6 +1,6 @@
 {
   "name": "@color-spaces/convert",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Color space conversion utilities",
   "repository": "git@github.com:thibthib/color-spaces.git",
   "author": "Thibaut Dutartre <t.dutartre@gmail.com>",
