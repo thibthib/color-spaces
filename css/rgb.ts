@@ -1,5 +1,6 @@
 import { sRGB } from "../spaces/sRGB";
 import { ColorSpace } from "../color-spaces";
+import { beautifyNumber } from "./utils";
 
 // rgb(r g b / a)
 // red, green and blue values can be either a percentage or a number between 0 and 255
@@ -19,7 +20,7 @@ export const parse = (color: string): sRGB | null => {
 
 export const stringify = (color: sRGB, alpha?: string): string => {
   const [red, green, blue] = color.values.map(
-    (value: number) => `${(value * 100).toFixed(2)}%`
+    (value: number) => `${beautifyNumber(value * 100, 2)}%`
   );
   return `rgb(${red} ${green} ${blue}${alpha ? ` / ${alpha}` : ""})`;
 };

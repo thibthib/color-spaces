@@ -16,5 +16,8 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"
+  },
+  "dependencies": {
+    "typescript": "4.3.4"
   }
 }

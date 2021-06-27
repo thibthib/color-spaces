@@ -1,5 +1,4 @@
 import { AdobeRGB, AdobeRGBToXYZ, XYZToAdobeRGB } from "./AdobeRGB";
-import { CMYK, CMYKToXYZ, XYZToCMYK } from "./CMYK";
 import { HSL, HSLToXYZ, XYZToHSL } from "./HSL";
 import { Lab, LabToXYZ, XYZToLab } from "./Lab";
 import { LCH, LCHToXYZ, XYZToLCH } from "./LCH";
@@ -15,7 +14,6 @@ export function convertColorToSpace(
   color: Color,
   to: ColorSpace.AdobeRGB
 ): AdobeRGB;
-export function convertColorToSpace(color: Color, to: ColorSpace.CMYK): CMYK;
 export function convertColorToSpace(color: Color, to: ColorSpace.HSL): HSL;
 export function convertColorToSpace(color: Color, to: ColorSpace.Lab): Lab;
 export function convertColorToSpace(color: Color, to: ColorSpace.LCH): LCH;
@@ -35,14 +33,12 @@ export function convertColorToSpace(
   to: RGBBasedSpace
 ): AdobeRGB | P3 | ProPhoto | Rec2020 | sRGB;
 export function convertColorToSpace(color: Color, to: CSSSpace): CSSColor;
+export function convertColorToSpace(color: Color, to: ColorSpace): Color;
 export function convertColorToSpace(color: Color, to: ColorSpace): Color {
   let XYZColor: XYZ;
   switch (color.type) {
     case ColorSpace.AdobeRGB:
       XYZColor = AdobeRGBToXYZ(color);
-      break;
-    case ColorSpace.CMYK:
-      XYZColor = CMYKToXYZ(color);
       break;
     case ColorSpace.HSL:
       XYZColor = HSLToXYZ(color);
@@ -73,8 +69,6 @@ export function convertColorToSpace(color: Color, to: ColorSpace): Color {
   switch (to) {
     case ColorSpace.AdobeRGB:
       return XYZToAdobeRGB(XYZColor);
-    case ColorSpace.CMYK:
-      return XYZToCMYK(XYZColor);
     case ColorSpace.HSL:
       return XYZToHSL(XYZColor);
     case ColorSpace.Lab:

@@ -1,5 +1,6 @@
 import { Lab } from "../spaces/Lab";
 import { ColorSpace } from "../color-spaces";
+import { beautifyNumber } from "./utils";
 
 // lab(l a b / a)
 // l is a percentage from 0 to Infinity
@@ -17,7 +18,7 @@ export const parse = (color: string): Lab | null => {
 export const stringify = (color: Lab, alpha?: string): string => {
   const [L, a, b] = color.values.map(
     (value: number, index: number) =>
-      `${value.toFixed(index === 0 ? 2 : 4)}${index === 0 ? "%" : ""}`
+      `${beautifyNumber(value, index === 0 ? 2 : 4)}${index === 0 ? "%" : ""}`
   );
   return `lab(${L} ${a} ${b}${alpha ? ` / ${alpha}` : ""})`;
 };
